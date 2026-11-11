@@ -62,11 +62,3 @@ distributed under the same terms.
 
 Arsenii Contineon — [hello.contineon.org](https://hello.contineon.org)
 
----
-
-### Коротко по-русски
-
-Неофициальный порт Epson iPrint для Windows Phone 8.1: поиск принтера по Wi‑Fi, печать фото и
-текстовых документов, статус, счётчики памперса (проценты для L805), проверка дюз и прочистка.
-Работает напрямую с принтером по SNMP и RAW 9100, без драйверов. Проверено на Epson L805.
-Лицензия GPL‑2.0‑or‑later.
