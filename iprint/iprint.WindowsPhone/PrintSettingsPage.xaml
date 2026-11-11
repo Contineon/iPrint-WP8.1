@@ -1,0 +1,55 @@
+<Page
+    x:Class="iprint.PrintSettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:iprint"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <!-- Figma frames 6/7 (photos) and 10/11 (documents) -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="19,0,0,0">
+            <TextBlock x:Name="KindTitle" Text="{StaticResource AppTitle}" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="print settings" Margin="0,-6.5,0,18" Style="{ThemeResource HeaderTextBlockStyle}"
+                       CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" Margin="19,0,19,0">
+            <StackPanel Margin="0,0,0,30">
+                <ComboBox x:Name="CopiesBox" Header="copies" Style="{StaticResource SettingComboStyle}"/>
+
+                <StackPanel x:Name="RangePanel">
+                    <ComboBox x:Name="RangeBox" Header="printing range" Style="{StaticResource SettingComboStyle}"
+                              SelectionChanged="RangeBox_SelectionChanged"/>
+                    <Grid x:Name="RangeFields" Margin="0,0,0,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="FromBox" Header="from page" InputScope="Number"/>
+                        <TextBox x:Name="ToBox" Grid.Column="2" Header="to page" InputScope="Number"/>
+                    </Grid>
+                </StackPanel>
+
+                <ComboBox x:Name="SizeBox" Header="paper size" Style="{StaticResource SettingComboStyle}"/>
+                <ComboBox x:Name="TypeBox" Header="media type" Style="{StaticResource SettingComboStyle}"/>
+                <ComboBox x:Name="LayoutBox" Header="layout" Style="{StaticResource SettingComboStyle}"/>
+                <ComboBox x:Name="QualityBox" Header="print quality" Style="{StaticResource SettingComboStyle}"/>
+                <ComboBox x:Name="SourceBox" Header="paper source" Style="{StaticResource SettingComboStyle}"/>
+                <ComboBox x:Name="ColorBox" Header="color" Style="{StaticResource SettingComboStyle}"/>
+                <ComboBox x:Name="SharpBox" Header="sharpness" Style="{StaticResource SettingComboStyle}"/>
+
+                <TextBlock Style="{StaticResource SubtleTextStyle}" Margin="0,12,0,0"
+                           Text="Borderless printing works on photo paper sizes. Load the paper you choose here before printing."/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

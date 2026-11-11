@@ -1,0 +1,25 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+[Bb]in/
+[Oo]bj/
+AppPackages/
+BundleArtifacts/
+*.appx
+*.appxbundle
+*.appxupload
+
+# signing keys (never publish)
+*.pfx
+*.snk
+
+# unused desktop (Windows 8.1) template project
+iprint/iprint.Windows/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

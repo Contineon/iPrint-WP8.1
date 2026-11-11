@@ -1,0 +1,59 @@
+<Page
+    x:Class="iprint.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:iprint"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <DataTemplate x:Key="MenuTemplate">
+            <TextBlock Text="{Binding Title}" Style="{StaticResource MenuItemTextStyle}"/>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <!-- Figma frames 3/4 (printer), 13/14 (add printer), 19/20 (about) -->
+        <Pivot x:Name="MainPivot" Title="{StaticResource AppTitle}">
+
+            <PivotItem x:Name="PrinterItem" Header="no printer">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="PrinterStatusText" Style="{StaticResource SubtleTextStyle}"
+                               Margin="0,0,0,14" Text="choose a printer on the add printer page"/>
+                    <ListView x:Name="PrinterMenu" Grid.Row="1" IsItemClickEnabled="True"
+                              SelectionMode="None" ItemClick="Menu_ItemClick"
+                              ItemTemplate="{StaticResource MenuTemplate}"/>
+                </Grid>
+            </PivotItem>
+
+            <PivotItem Header="add printer">
+                <ListView x:Name="AddMenu" IsItemClickEnabled="True" SelectionMode="None"
+                          ItemClick="Menu_ItemClick" ItemTemplate="{StaticResource MenuTemplate}"/>
+            </PivotItem>
+
+            <PivotItem Header="about">
+                <StackPanel>
+                    <TextBlock Text="iPrint" Style="{StaticResource MenuItemTextStyle}"/>
+                    <TextBlock Style="{StaticResource ItemTextStyle}" TextWrapping="Wrap">
+                        <Run Text="version 1.0"/>
+                        <LineBreak/>
+                        <Run Text="development by Arsenii Contineon"/>
+                    </TextBlock>
+                    <HyperlinkButton Content="hello.contineon.org" NavigateUri="https://hello.contineon.org"
+                                     Padding="0" Margin="0,0,0,24" FontSize="22"/>
+                    <TextBlock Style="{StaticResource SubtleTextStyle}">
+                        <Run Text="Printing engine ported from Epson ESC/P-R driver for Linux (GPL-2.0-or-later)."/>
+                        <LineBreak/>
+                        <Run Text="Not affiliated with Seiko Epson Corporation."/>
+                    </TextBlock>
+                </StackPanel>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
